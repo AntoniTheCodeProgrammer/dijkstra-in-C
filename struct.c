@@ -46,3 +46,24 @@ int create_Vertex(Vertex** vertex, char* file_name) {
 
     return 0;
 }
+
+void print_vertex(Vertex* vertex) {
+    Vertex* v_ptr = vertex;
+    printf("Structure:\n");
+    while (v_ptr != NULL) {
+        printf("%i -> { ", v_ptr->ID);
+        Road* r_ptr = v_ptr->road;
+        int roads = 0;
+        while (r_ptr != NULL) {
+            printf("[%d (weight: %d)] ", r_ptr->directionID, r_ptr->weight);
+            r_ptr = r_ptr->next;
+            roads++;
+        }
+        if(roads == 0){
+            printf("NULL ");
+        }
+        printf("}\n");
+        v_ptr = v_ptr->next;
+    }
+    printf("\n");
+}
