@@ -1,0 +1,8 @@
+4 2
+0 1 5
+2 3 10
+
+Dystans do 0 to: 0
+Dystans do 1 to: 5
+Miasto 2: Brak drogi  (lub bardzo duża liczba, np. 99999999)
+Miasto 3: Brak drogi  (lub bardzo duża liczba, np. 99999999)
