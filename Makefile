@@ -5,8 +5,8 @@ CFLAGS = -Wall -g
 TARGET = main
 
 # Pliki obiektowe potrzebne do zbudowania programu
-# DODANO: djikstra.o
-OBJS = main.o struct.o djikstra.o
+# DODANO: dijkstra.o
+OBJS = main.o struct.o dijkstra.o
 
 # Reguła domyślna: buduj program
 all: $(TARGET)
@@ -16,16 +16,16 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
 # Kompilacja main.c -> main.o
-main.o: main.c struct.h djikstra.h
+main.o: main.c struct.h dijkstra.h
 	$(CC) $(CFLAGS) -c main.c
 
 # Kompilacja struct.c -> struct.o
 struct.o: struct.c struct.h
 	$(CC) $(CFLAGS) -c struct.c
 
-# DODANO: Kompilacja djikstra.c -> djikstra.o
-djikstra.o: djikstra.c djikstra.h struct.h
-	$(CC) $(CFLAGS) -c djikstra.c
+# DODANO: Kompilacja dijkstra.c -> dijkstra.o
+dijkstra.o: dijkstra.c dijkstra.h struct.h
+	$(CC) $(CFLAGS) -c dijkstra.c
 
 # Czyszczenie (usuwanie plików tymczasowych)
 clean:

@@ -1,4 +1,4 @@
-Dijkstra's algorithm
+Dijkstra's Algorithm
 
 Simple Code in C
 

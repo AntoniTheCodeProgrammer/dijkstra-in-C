@@ -1,4 +1,4 @@
-#include "djikstra.h"
+#include "dijkstra.h"
 
 void update_neighbours(Vertex* vertex, int start, Fastest* roads_to_points, int weight) {
     Vertex* actual_point = vertex;
@@ -19,7 +19,7 @@ void update_neighbours(Vertex* vertex, int start, Fastest* roads_to_points, int 
     }
 }
 
-void djikstra(Vertex* vertex, int start, int n) {
+void dijkstra(Vertex* vertex, int start, int n) {
     Fastest roads_to_points[n];
     for (int i = 0; i < n; i++) {
         roads_to_points[i].final = false;

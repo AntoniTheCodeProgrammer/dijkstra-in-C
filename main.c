@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "djikstra.h"
+#include "dijkstra.h"
 #include "struct.h"
 
 int main() {
@@ -12,6 +12,6 @@ int main() {
 
     print_vertex(vertex);
 
-    djikstra(vertex, 0, 6);
+    dijkstra(vertex, 0, 6);
     return 0;
 }

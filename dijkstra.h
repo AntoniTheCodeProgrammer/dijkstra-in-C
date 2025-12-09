@@ -1,5 +1,5 @@
-#ifndef DJIKSTRA_H
-#define DJIKSTRA_H
+#ifndef DIJKSTRA_H
+#define DIJKSTRA_H
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -7,6 +7,6 @@
 
 #include "struct.h"
 
-void djikstra(Vertex* vertex, int start, int n);
+void dijkstra(Vertex* vertex, int start, int n);
 
 #endif
