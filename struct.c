@@ -28,7 +28,7 @@ int create_Vertex(Vertex** vertex, char* file_name) {
     double weight;
     char name[256];
 
-    while (fscanf(file, "%d %d %lf %s", &parent, &child, &weight, name) == 4) {
+    while (fscanf(file, "%s %d %d %lf", name, &parent, &child, &weight) == 4) {
         while (parent >= n || child >= n) {
             tail = new_Vertex(vertex, n, tail);
             n++;

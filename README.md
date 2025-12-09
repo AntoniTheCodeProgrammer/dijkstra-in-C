@@ -7,7 +7,7 @@ How tu run?
 make
 ./main
 
-How edit data.txt?
+How edit source file?
 
-First row is number of vertices and number of roads.
-Next rows(number of roads) have three values: parent od road, its direction and weight. 
+Source file should be build with four columns:
+name of road(char *), ID of start point(int), ID of end point(int) and its weight(float)

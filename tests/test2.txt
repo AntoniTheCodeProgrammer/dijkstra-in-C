@@ -1,5 +1,5 @@
-0 1 5 prosta
-2 3 10 oddalona
+prosta 0 1 6.0
+oddalona 2 3 11.0
 
 Dystans do 0 to: 0
 Dystans do 1 to: 5

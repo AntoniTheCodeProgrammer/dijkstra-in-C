@@ -1,5 +1,5 @@
-0 1 5 pierwsza
-1 2 5 druga
+pierwsza 0 1 5.1
+druga 1 2 5.0
 
 Dystans do 0 to: 0
 Dystans do 1 to: 5

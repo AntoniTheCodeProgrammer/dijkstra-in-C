@@ -1,19 +1,19 @@
-0 1 5 A
-0 2 10 B
-1 2 2 C
-2 3 20 D
-2 4 1 E
-4 3 2 F
-3 5 10 G
-5 0 50 H
-6 7 2 wyspa1
-7 8 2 wyspa2
-8 6 2 wyspa3
-8 9 10 most_zly
-0 9 100 most_dobry
-1 4 100 pulapka1
-4 5 100 pulapka2
-1 2 3 gorsza_opcja
+A 0 1 5.5
+B 0 2 10.2
+C 1 2 2.1
+D 2 3 22.0
+E 2 4 1.5
+F 4 3 2.3
+G 3 5 11.0
+H 5 0 55.0
+wyspa1 6 7 2.0
+wyspa2 7 8 2.0
+wyspa3 8 6 2.0
+most_zly 8 9 10.0
+most_dobry 0 9 95.0
+pulapka1 1 4 105.0
+pulapka2 4 5 105.0
+gorsza_opcja 1 2 3.5
 
 Dystans do 0 to: 0
 Dystans do 1 to: 5

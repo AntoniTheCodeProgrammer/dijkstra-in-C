@@ -1,17 +1,17 @@
-0 1 100 gora1
-0 2 5 dol1
-2 1 5 pion1
-1 3 100 gora2
-1 4 5 skos1
-4 3 5 pion2
-3 5 100 gora3
-3 6 5 dol2
-6 5 5 pion3
-5 7 100 gora4
-5 0 1 powrot
-0 7 200 gigant
-2 4 1 super_skrot1
-4 6 1 super_skrot2
+gora1 0 1 95.0
+dol1 0 2 4.5
+pion1 2 1 6.0
+gora2 1 3 110.0
+skos1 1 4 5.2
+pion2 4 3 4.8
+gora3 3 5 88.0
+dol2 3 6 4.1
+pion3 6 5 4.9
+gora4 5 7 120.0
+powrot 5 0 0.5
+gigant 0 7 210.0
+super_skrot1 2 4 1.1
+super_skrot2 4 6 0.9
 
 Dystans do 0 to: 0
 Dystans do 1 to: 10   (0 -> 2 -> 1)
