@@ -1,6 +1,30 @@
 #include "dijkstra.h"
 
-void update_neighbours(Vertex* vertex, int start, Fastest* roads_to_points, int weight) {
+void print_road(Vertex *vertex, Fastest *roads_to_points, int destination, int start) {
+    int current = destination;
+    
+    int path[1000];
+    char *names[1000];
+    int count = 0;
+
+    while (current != start && current != -1) {
+        path[count] = current;
+        
+        names[count] = roads_to_points[current].road_name; 
+        
+        current = roads_to_points[current].parent;
+        count++;
+    }
+    path[count] = start;
+
+    // Wypisujemy od końca
+    printf("Start: %d ", start);
+    for (int i = count - 1; i >= 0; i--) {
+        printf(" --[%s]--> (%d) ", names[i], path[i]);
+    }
+}
+
+void update_neighbours(Vertex* vertex, int start, Fastest* roads_to_points, double weight) {
     Vertex* actual_point = vertex;
     while (actual_point != NULL && actual_point->ID != start) {
         actual_point = actual_point->next;
@@ -14,6 +38,7 @@ void update_neighbours(Vertex* vertex, int start, Fastest* roads_to_points, int 
         if (roads_to_points[current_road->directionID].distance > weight + current_road->weight) {
             roads_to_points[current_road->directionID].distance = weight + current_road->weight;
             roads_to_points[current_road->directionID].parent = start;
+            roads_to_points[current_road->directionID].road_name = current_road->name;
         }
         current_road = current_road->next;
     }
@@ -49,7 +74,22 @@ void dijkstra(Vertex* vertex, int start, int n) {
         if (roads_to_points[i].distance == 99999999) {
             printf("Brak drogi do miasta %i\n", i);
         } else {
-            printf("Dystans do %i to jedynie %f \n", i, roads_to_points[i].distance);
+            printf("Dystans do %i to jedynie %lf ", i, roads_to_points[i].distance);
+            print_road(vertex, roads_to_points, i, start);
+            printf("\n");
         }
     }
 }
+
+// void print_road(Vertex *vertex, Fastest *roads_to_points, int from, int destination){
+//     int actual_point = from;
+//     char *result = "";
+//     while (actual_point != destination){
+//         while (curr != NULL && curr->ID != u) {
+//             curr = curr->next;
+//         }
+//         roads_to_points[actual_point].parent;
+//         char *road_name = "droga";
+//         result = road_name + result;
+//     }
+// }

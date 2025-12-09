@@ -23,6 +23,7 @@ typedef struct Fastest {
     double distance;
     bool final;
     int parent;
+    char *road_name;
 } Fastest;
 
 int create_Vertex(Vertex** vertex, char* file_name);

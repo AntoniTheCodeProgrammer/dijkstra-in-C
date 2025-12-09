@@ -1,7 +1,6 @@
 #include "struct.h"
 
-Vertex *new_Vertex(Vertex** vertex, int i, Vertex* tail){
-    printf("new vertex");
+Vertex* new_Vertex(Vertex** vertex, int i, Vertex* tail) {
     Vertex* v = malloc(sizeof(Vertex));
     v->ID = i;
     v->road = NULL;
@@ -30,7 +29,7 @@ int create_Vertex(Vertex** vertex, char* file_name) {
     char name[256];
 
     while (fscanf(file, "%d %d %lf %s", &parent, &child, &weight, name) == 4) {
-        while(parent > n || child > n){
+        while (parent > n || child > n) {
             tail = new_Vertex(vertex, n, tail);
             n++;
         }
@@ -54,22 +53,22 @@ int create_Vertex(Vertex** vertex, char* file_name) {
 }
 
 void print_vertex(Vertex* vertex) {
-    Vertex* v_ptr = vertex;
+    Vertex* current_Vertex = vertex;
     printf("Structure:\n");
-    while (v_ptr != NULL) {
-        printf("%i -> { ", v_ptr->ID);
-        Road* r_ptr = v_ptr->road;
+    while (current_Vertex != NULL) {
+        printf("%i -> { ", current_Vertex->ID);
+        Road* current_Road = current_Vertex->road;
         int roads = 0;
-        while (r_ptr != NULL) {
-            printf("[%d via \"%s\" (weight: %f)] ", r_ptr->directionID, r_ptr->name, r_ptr->weight);
-            r_ptr = r_ptr->next;
+        while (current_Road != NULL) {
+            printf("[%d via \"%s\" (weight: %f)] ", current_Road->directionID, current_Road->name, current_Road->weight);
+            current_Road = current_Road->next;
             roads++;
         }
         if (roads == 0) {
             printf("NULL ");
         }
         printf("}\n");
-        v_ptr = v_ptr->next;
+        current_Vertex = current_Vertex->next;
     }
     printf("\n");
 }
