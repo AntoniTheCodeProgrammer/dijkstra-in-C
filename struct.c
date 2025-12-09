@@ -29,7 +29,6 @@ int create_Vertex(Vertex** vertex, char* file_name) {
     char name[256];
 
     while (fscanf(file, "%d %d %lf %s", &parent, &child, &weight, name) == 4) {
-        // printf("Wczytano: %d -> %d (waga %.2f, nazwa %s)\n", parent, child, weight, name);
         while (parent >= n || child >= n) {
             tail = new_Vertex(vertex, n, tail);
             n++;
