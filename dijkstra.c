@@ -10,7 +10,7 @@ void update_neighbours(Vertex* vertex, int start, Fastest* roads_to_points, int 
     }
     Road* current_road = actual_point->road;
 
-    while (current_road->next != NULL) {
+    while (current_road != NULL) {
         if (roads_to_points[current_road->directionID].distance > weight + current_road->weight) {
             roads_to_points[current_road->directionID].distance = weight + current_road->weight;
             roads_to_points[current_road->directionID].parent = start;
