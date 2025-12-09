@@ -59,11 +59,21 @@ void print_vertex(Vertex* vertex) {
             r_ptr = r_ptr->next;
             roads++;
         }
-        if(roads == 0){
+        if (roads == 0) {
             printf("NULL ");
         }
         printf("}\n");
         v_ptr = v_ptr->next;
     }
     printf("\n");
+}
+
+int lenght_of_vertex(Vertex* vertex) {
+    Vertex* current = vertex;
+    int i = 0;
+    while (current != NULL) {
+        current = current->next;
+        i++;
+    }
+    return i;
 }

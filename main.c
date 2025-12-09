@@ -6,12 +6,12 @@
 
 int main() {
     Vertex* vertex = NULL;
-    if (create_Vertex(&vertex, "data.txt") != 0) {
+    if (create_Vertex(&vertex, "tests/test4.txt") != 0) {
         return 1;
     }
-
+    int n = lenght_of_vertex(vertex);
     print_vertex(vertex);
 
-    dijkstra(vertex, 0, 6);
+    dijkstra(vertex, 0, n);
     return 0;
 }

@@ -25,5 +25,6 @@ typedef struct Fastest {
 
 int create_Vertex(Vertex** vertex, char* file_name);
 void print_vertex(Vertex* vertex);
+int lenght_of_vertex(Vertex* vertex);
 
 #endif
