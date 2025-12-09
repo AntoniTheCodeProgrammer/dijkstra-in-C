@@ -4,10 +4,12 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct Road {
     int directionID;
-    int weight;
+    char *name;
+    double weight;
     struct Road* next;
 } Road;
 
@@ -18,7 +20,7 @@ typedef struct Vertex {
 } Vertex;
 
 typedef struct Fastest {
-    int distance;
+    double distance;
     bool final;
     int parent;
 } Fastest;

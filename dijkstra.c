@@ -49,7 +49,7 @@ void dijkstra(Vertex* vertex, int start, int n) {
         if (roads_to_points[i].distance == 99999999) {
             printf("Brak drogi do miasta %i\n", i);
         } else {
-            printf("Dystans do %i to jedynie %i \n", i, roads_to_points[i].distance);
+            printf("Dystans do %i to jedynie %f \n", i, roads_to_points[i].distance);
         }
     }
 }

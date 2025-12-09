@@ -1,5 +1,20 @@
 #include "struct.h"
 
+Vertex *new_Vertex(Vertex** vertex, int i, Vertex* tail){
+    printf("new vertex");
+    Vertex* v = malloc(sizeof(Vertex));
+    v->ID = i;
+    v->road = NULL;
+    v->next = NULL;
+
+    if (tail != NULL) {
+        tail->next = v;
+    } else {
+        *vertex = v;
+    }
+    return v;
+}
+
 int create_Vertex(Vertex** vertex, char* file_name) {
     FILE* file = fopen(file_name, "r");
 
@@ -7,31 +22,22 @@ int create_Vertex(Vertex** vertex, char* file_name) {
         printf("Nie udalo sie otworzyc pliku!\n");
         return 1;
     }
-    int n = 0;
-    int m = 0;
-
-    fscanf(file, "%d %d", &n, &m);
 
     Vertex* tail = NULL;
-    for (int i = 0; i < n; i++) {
-        Vertex* v = malloc(sizeof(Vertex));
-        v->ID = i;
-        v->road = NULL;
-        v->next = NULL;
+    int n = 0;
+    int parent, child;
+    double weight;
+    char name[256];
 
-        if (tail != NULL) {
-            tail->next = v;
-        } else {
-            *vertex = v;
+    while (fscanf(file, "%d %d %lf %s", &parent, &child, &weight, name) == 4) {
+        while(parent > n || child > n){
+            tail = new_Vertex(vertex, n, tail);
+            n++;
         }
-        tail = v;
-    }
 
-    int parent, child, weight;
-    for (int i = 0; i < m; i++) {
-        fscanf(file, "%d %d %d", &parent, &child, &weight);
         Road* new_road = malloc(sizeof(Road));
         new_road->directionID = child;
+        new_road->name = strdup(name);
         new_road->weight = weight;
         Vertex* current = *vertex;
         while (current != NULL && current->ID != parent) {
@@ -55,7 +61,7 @@ void print_vertex(Vertex* vertex) {
         Road* r_ptr = v_ptr->road;
         int roads = 0;
         while (r_ptr != NULL) {
-            printf("[%d (weight: %d)] ", r_ptr->directionID, r_ptr->weight);
+            printf("[%d via \"%s\" (weight: %f)] ", r_ptr->directionID, r_ptr->name, r_ptr->weight);
             r_ptr = r_ptr->next;
             roads++;
         }
