@@ -1,17 +1,17 @@
 #include "dijkstra.h"
 
-void print_road(Vertex *vertex, Fastest *roads_to_points, int destination, int start) {
+void print_road(Vertex* vertex, Fastest* roads_to_points, int destination, int start) {
     int current = destination;
-    
+
     int path[1000];
-    char *names[1000];
+    char* names[1000];
     int count = 0;
 
     while (current != start && current != -1) {
         path[count] = current;
-        
-        names[count] = roads_to_points[current].road_name; 
-        
+
+        names[count] = roads_to_points[current].road_name;
+
         current = roads_to_points[current].parent;
         count++;
     }
@@ -63,13 +63,14 @@ void dijkstra(Vertex* vertex, int start, int n) {
                 minDistant = roads_to_points[j].distance;
             }
         }
-        if (minID == -1 || minDistant == 99999999){
+        if (minID == -1 || minDistant == 99999999) {
             break;
         }
         roads_to_points[minID].final = true;
         update_neighbours(vertex, minID, roads_to_points, roads_to_points[minID].distance);
     }
 
+    printf("Result: \n");
     for (int i = 0; i < n; i++) {
         if (roads_to_points[i].distance == 99999999) {
             printf("Brak drogi do miasta %i\n", i);
@@ -80,16 +81,3 @@ void dijkstra(Vertex* vertex, int start, int n) {
         }
     }
 }
-
-// void print_road(Vertex *vertex, Fastest *roads_to_points, int from, int destination){
-//     int actual_point = from;
-//     char *result = "";
-//     while (actual_point != destination){
-//         while (curr != NULL && curr->ID != u) {
-//             curr = curr->next;
-//         }
-//         roads_to_points[actual_point].parent;
-//         char *road_name = "droga";
-//         result = road_name + result;
-//     }
-// }
